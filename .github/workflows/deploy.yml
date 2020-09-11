@@ -17,7 +17,7 @@ jobs:
 
       - name: Build Slate Doc
         run: |
-          docker build -t slate-builder:latest slate/ --build-arg local=true
+          docker build -t slate-builder:latest slate/
           docker run --rm -v $(pwd)/build:/srv/slate/build slate-builder:latest
       - name: Build Bootstrap
         run: go build -o bootstrap
