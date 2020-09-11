@@ -1,0 +1,30 @@
+name: Function Deploy
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: satackey/action-docker-layer-caching@v0.0.3
+      - uses: actions/setup-go@v2
+
+      - name: Build Slate Doc
+        run: |
+          docker build -t :latest slate/ --build-arg local=true
+          docker run --rm -v $(pwd)/build:/srv/slate/build slate-builder:latest
+      - name: Build Bootstrap
+        run: go build -o bootstrap
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: fun-artifact
+          path: |
+            build/
+            bootstrap
