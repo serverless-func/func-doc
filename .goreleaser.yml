@@ -1,7 +1,3 @@
-before:
-  hooks:
-    - docker build -t slate-builder:latest slate/
-    - docker run --rm -v $(pwd)/static:/srv/slate/build slate-builder:latest
 builds:
   - env:
       - CGO_ENABLED=0
