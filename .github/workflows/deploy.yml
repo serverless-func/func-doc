@@ -3,8 +3,16 @@ name: Function Deploy
 on:
   push:
     branches: [master]
+    paths:
+      - "slate/**"
+      - "main.go"
+      - "template.yml"
   pull_request:
     branches: [master]
+    paths:
+      - "slate/**"
+      - "main.go"
+      - "template.yml"
 
 jobs:
   build:
