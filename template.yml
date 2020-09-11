@@ -1,0 +1,19 @@
+ROSTemplateFormatVersion: "2015-09-01"
+Transform: "Aliyun::Serverless-2018-04-03"
+Resources:
+  docs:
+    Type: "Aliyun::Serverless::Service"
+    Properties:
+      Description: "document for serverless functions"
+    index:
+      Type: "Aliyun::Serverless::Function"
+      Properties:
+        Handler: main
+        Runtime: custom
+        CodeUri: "./artifact"
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: ANONYMOUS
+            Methods: ["GET"]
