@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
+      - uses: satackey/action-docker-layer-caching@v0.0.8
 
       - name: Build Slate Doc
         run: |
