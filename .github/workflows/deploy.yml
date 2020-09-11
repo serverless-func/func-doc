@@ -55,5 +55,5 @@ jobs:
       - name: Deploy
         run: fun deploy -y
         env:
-          FUNCRAFT_TIMEOUT: ${{ secrets.TIMEOUT }}
-          FUNCRAFT_RETRIES: ${{ secrets.RETRIES }}
+          TIMEOUT: ${{ secrets.FUNCRAFT_TIMEOUT }}
+          RETRIES: ${{ secrets.FUNCRAFT_RETRIES }}
