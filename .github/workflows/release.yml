@@ -12,6 +12,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
 
+      - name: Build Slate Doc
+        run: |
+          docker build -t slate-builder:latest slate/
+          docker run --rm -v $(pwd)/static:/srv/slate/build slate-builder:latest
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
