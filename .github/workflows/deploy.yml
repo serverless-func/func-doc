@@ -19,8 +19,10 @@ jobs:
         run: |
           docker build -t slate-builder:latest slate/
           docker run --rm -v $(pwd)/static:/srv/slate/build slate-builder:latest
+
       - name: Build Bootstrap
         run: go build -o bootstrap
+
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -28,3 +30,27 @@ jobs:
           path: |
             static/
             bootstrap
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: fun-artifact
+          path: artifact
+
+      - name: Setup Funcraft
+        run: |
+          npm install @alicloud/fun -g
+
+      - name: Fix bootstrap permission
+        run: chmod +x artifact/bootstrap
+
+      - name: Deploy
+        run: fun deploy -y
+        env:
+          FUNCRAFT_TIMEOUT: ${{ secrets.TIMEOUT }}
+          FUNCRAFT_RETRIES: ${{ secrets.RETRIES }}
