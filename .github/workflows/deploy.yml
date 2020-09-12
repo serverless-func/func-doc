@@ -2,13 +2,8 @@ name: Function Deploy
 
 on:
   push:
-    branches: [master]
-    paths:
-      - "slate/**"
-      - "main.go"
-      - "template.yml"
-  pull_request:
-    branches: [master]
+    tags:
+      - "*"
     paths:
       - "slate/**"
       - "main.go"
@@ -23,8 +18,12 @@ jobs:
       - uses: satackey/action-docker-layer-caching@v0.0.8
       - uses: actions/setup-go@v2
 
+      - name: Get release version
+        run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
+
       - name: Build Slate Doc
         run: |
+          sed -i "s/VERSION/$RELEASE_VERSION/g" slate/source/index.html.md
           docker build -t slate-builder:latest slate/
           docker run --rm -v $(pwd)/static:/srv/slate/build slate-builder:latest
 
