@@ -13,3 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Automatically build and deploy with github workflow depend on [funcraft](https://github.com/alibaba/funcraft)
 - Automatically publish github release with [goreleaser](https://goreleaser.com/)
 - Versioned document
+
+## [1.0.1] - 2020-09-12
+
+### Bugfix
+
+- Fix document version toc, escape colon
