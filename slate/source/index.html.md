@@ -9,8 +9,8 @@ toc_footers:
   - <a href='https://github.com/serverless-aliyun/fun-doc/releases/tag/VERSION'>VER&#58; VERSION</a>
 
 includes:
-  - series
   - stats
+  - series
   - errors
 
 search: true
