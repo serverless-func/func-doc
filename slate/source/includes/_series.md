@@ -61,8 +61,6 @@ curl -X GET "https://fun.dongfg.com/series/10733"
 
 ```json
 {
-  "msg": "success",
-  "timestamp": 1595403802,
   "data": {
     "id": "10733",
     "cnName": "权力的游戏",
@@ -72,7 +70,9 @@ curl -X GET "https://fun.dongfg.com/series/10733"
     "rssLink": "http://rss.rrys.tv/rss/feed/10733",
     "area": "美国",
     "category": "战争/剧情/魔幻/历史/古装/史诗"
-  }
+  },
+  "msg": "success",
+  "timestamp": 1595403802
 }
 ```
 
