@@ -36,7 +36,6 @@ curl -X GET "https://fun.dongfg.com/series?keyword=权力的游戏&details=true"
 }
 ```
 
-
 通过关键字搜索剧集
 
 ### HTTP Request
@@ -45,10 +44,10 @@ curl -X GET "https://fun.dongfg.com/series?keyword=权力的游戏&details=true"
 
 ### Query Parameters
 
-Parameter |Default| Description
---------- | ----- | -----------
-keyword | |搜索关键字
-details| false |是否返回详情, false 时仅返回 id, cnName, poster
+| Parameter | Default | Description                                     |
+| --------- | ------- | ----------------------------------------------- |
+| keyword   |         | 搜索关键字                                      |
+| details   | false   | 是否返回详情, false 时仅返回 id, cnName, poster |
 
 <aside class="warning">搜索使用`details=true`时接口响应时间较慢.</aside>
 
@@ -62,14 +61,18 @@ curl -X GET "https://fun.dongfg.com/series/10733"
 
 ```json
 {
-  "id": "10733",
-  "cnName": "权力的游戏",
-  "poster": "http://tu.jstucdn.com/ftp/2019/0322/d2b4282fe50dffaad4c73b6f3d6176ff.jpg",
-  "enName": "Game of Thrones",
-  "link": "http://www.rrys2020.com/resource/10733",
-  "rssLink": "http://rss.rrys.tv/rss/feed/10733",
-  "area": "美国",
-  "category": "战争/剧情/魔幻/历史/古装/史诗"
+  "msg": "success",
+  "timestamp": 1595403802,
+  "data": {
+    "id": "10733",
+    "cnName": "权力的游戏",
+    "poster": "http://tu.jstucdn.com/ftp/2019/0322/d2b4282fe50dffaad4c73b6f3d6176ff.jpg",
+    "enName": "Game of Thrones",
+    "link": "http://www.rrys2020.com/resource/10733",
+    "rssLink": "http://rss.rrys.tv/rss/feed/10733",
+    "area": "美国",
+    "category": "战争/剧情/魔幻/历史/古装/史诗"
+  }
 }
 ```
 
@@ -81,9 +84,9 @@ curl -X GET "https://fun.dongfg.com/series/10733"
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | 搜索返回的id
+| Parameter | Description   |
+| --------- | ------------- |
+| ID        | 搜索返回的 id |
 
 ## 获取剧集下载地址
 
@@ -118,6 +121,6 @@ curl -X GET "https://fun.dongfg.com/series/10733/episodes"
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | 搜索返回的 id
+| Parameter | Description   |
+| --------- | ------------- |
+| ID        | 搜索返回的 id |
