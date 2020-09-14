@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - series
+  - stats
   - errors
 
 search: true
