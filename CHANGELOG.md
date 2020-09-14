@@ -19,3 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Bugfix
 
 - Fix document version toc, escape colon
+
+## [1.0.2] - 2020-09-14
+
+### Bugfix
+
+- Wrap series detail result
