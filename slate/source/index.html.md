@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - stats
   - series
+  - ebill
   - errors
 
 search: true
