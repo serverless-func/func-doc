@@ -31,3 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Add
 
 - Add stats doc
+
+## [1.0.4] - 2020-09-22
+
+### Add
+
+- Add ebill doc
