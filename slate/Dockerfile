@@ -16,6 +16,5 @@ COPY config.rb Gemfile Gemfile.lock /srv/slate/
 RUN if [ "$local" = "true" ] ; then bundle config mirror.https://rubygems.org https://gems.ruby-china.com && bundle install ; else bundle install ; fi
 
 COPY lib /srv/slate/lib
-COPY source /srv/slate/source
 
 CMD ["bundle", "exec", "middleman", "build", "--clean"]
