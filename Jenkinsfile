@@ -20,7 +20,6 @@ pipeline {
       steps {
         sh '''
             sed -i "s/VERSION/${GIT_TAG}/g" slate/source/index.html.md
-            cat slate/source/index.html.md
         '''
       }
     }
