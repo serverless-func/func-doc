@@ -17,3 +17,16 @@ Resources:
           Properties:
             AuthType: ANONYMOUS
             Methods: ["GET"]
+  fun.dongfg.com:
+    Type: "Aliyun::Serverless::CustomDomain"
+    Properties:
+      Protocol: HTTP,HTTPS
+      CertConfig:
+        CertName: "fun_dongfg_com"
+        PrivateKey: "./ssl.private.pem"
+        Certificate: "./ssl.cert.pem"
+      RouteConfig:
+        Routes:
+          "/*":
+            ServiceName: docs
+            FunctionName: index
