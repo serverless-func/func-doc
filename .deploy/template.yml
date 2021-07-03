@@ -4,13 +4,13 @@ Resources:
   docs:
     Type: "Aliyun::Serverless::Service"
     Properties:
-      Description: "document for serverless functions"
+      Description: "函数计算服务文档"
     index:
       Type: "Aliyun::Serverless::Function"
       Properties:
         Handler: main
         Runtime: custom
-        CodeUri: "./artifact"
+        CodeUri: "./"
       Events:
         httpTrigger:
           Type: HTTP
