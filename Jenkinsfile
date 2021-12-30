@@ -44,39 +44,24 @@ pipeline {
       }
     }
 
-    stage('构建Bootstrap') {
-      steps {
-        sh '''
-            mv static .deploy/
-            go build -o .deploy/bootstrap .deploy/main.go
-        '''
-      }
-    }
-    stage('下载证书') {
-      steps {
-        script {
-            sh '''
-              curl -fL "https://dongfg-generic.pkg.coding.net/serverless-aliyun/secrets/ssl.fun.key?version=latest" -o ./.deploy/ssl.private.pem
-              curl -fL "https://dongfg-generic.pkg.coding.net/serverless-aliyun/secrets/ssl.fun.cer?version=latest" -o ./.deploy/ssl.cert.pem
-            '''
-        }
-      }
-    }
     stage('部署') {
       when {
         buildingTag()
       }
       steps {
         script {
-          try {
-            withCredentials([usernamePassword(credentialsId: '6384c2ec-5a4d-4b6c-ad57-992dc5a88842', usernameVariable: 'ACCESS_KEY_ID', passwordVariable: 'ACCESS_KEY_SECRET')]) {
-              sh "curl -o fun-linux.zip http://funcruft-release.oss-accelerate.aliyuncs.com/fun/fun-v3.6.21-linux.zip"
-              sh "unzip fun-linux.zip"
-              sh "mv fun-v3.6.21-linux /usr/local/bin/fun"
-              sh "cd .deploy/ && fun deploy -y"
-            }
-          } catch(err) {
-            echo err.getMessage()
+          withCredentials([usernamePassword(credentialsId: 'e8d95aac-7e13-432e-83ff-0f157cc1afc8', usernameVariable: 'USER', passwordVariable: 'ACCESS_TOKEN')]) {
+            sh """
+              cd static
+              git init
+              git config --local user.name dongfg
+              git config --local user.email mail@dongfg.com
+              git remote add origin https://${ACCESS_TOKEN}@github.com/serverless-aliyun/fun-doc.git
+              git checkout -b gh-pages
+              git add --all
+              git commit -m "deploy gh-pages"
+              git push origin gh-pages -f
+            """
           }
         }
       }
