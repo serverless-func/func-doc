@@ -53,6 +53,7 @@ pipeline {
           withCredentials([usernamePassword(credentialsId: 'e8d95aac-7e13-432e-83ff-0f157cc1afc8', usernameVariable: 'USER', passwordVariable: 'ACCESS_TOKEN')]) {
             sh """
               cd static
+              echo "fun.dongfg.com" > CNAME
               git init
               git config --local user.name dongfg
               git config --local user.email mail@dongfg.com
