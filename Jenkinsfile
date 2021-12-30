@@ -30,7 +30,7 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: 'd2d0211a-5f3f-46f6-92cd-d2ec9692bc27', usernameVariable: 'REGISTRY_USER', passwordVariable: 'REGISTRY_PASS')]) {
               sh "echo ${REGISTRY_PASS} | docker login -u ${REGISTRY_USER} --password-stdin dongfg-docker.pkg.coding.net"
             }
-            imageFullName = "dongfg-docker.pkg.coding.net/serverless-aliyun/fun-doc/slate-builder:1.0.1"
+            imageFullName = "dongfg-docker.pkg.coding.net/serverless-aliyun/fun-doc/slate-builder:1.1.1"
             imageNotExists = sh(script: "DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect $imageFullName > /dev/null", returnStatus: true)
             if (imageNotExists) {
                 docker.build("$imageFullName", "./slate")
