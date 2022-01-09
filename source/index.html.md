@@ -7,6 +7,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='https://github.com/serverless-aliyun/fun-doc'>Source Code</a>
   - <a href='https://github.com/serverless-aliyun/fun-doc/releases/tag/VERSION'>VER&#58; VERSION</a>
+  - VER&#58; BUILD_TIME
 
 includes:
   - stats

@@ -3,6 +3,7 @@ pipeline {
   environment {
     ACCOUNT_ID = '1607652824904310'
     REGION    = 'cn-hangzhou'
+    CURRENT_TIME = sh(returnStdout: true, script: 'date +"%y-%m-%d %T"').trim()
   }
   stages {
     stage("检出代码") {
@@ -19,7 +20,8 @@ pipeline {
     stage('写入版本号') {
       steps {
         sh '''
-            sed -i "s/VERSION/${GIT_TAG}/g" slate/source/index.html.md
+            sed -i "s/VERSION/${GIT_TAG}/g" source/index.html.md
+            sed -i "s/BUILD_TIME/${CURRENT_TIME}/g" source/index.html.md
         '''
       }
     }
