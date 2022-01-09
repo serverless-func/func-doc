@@ -3,7 +3,7 @@
 ## 调用次数统计
 
 ```shell
-curl -X GET "https://fun.dongfg.com/stats/service"
+curl -X GET "https://stats.fun.dongfg.com/service"
 ```
 
 > The above command returns JSON structured like this:
@@ -32,12 +32,12 @@ curl -X GET "https://fun.dongfg.com/stats/service"
 
 ### HTTP Request
 
-`GET https://fun.dongfg.com/stats/service`
+`GET https://stats.fun.dongfg.com/service`
 
 ## 处理时间统计
 
 ```shell
-curl -X GET "https://fun.dongfg.com/stats/function"
+curl -X GET "https://stats.fun.dongfg.com/function"
 ```
 
 > The above command returns JSON structured like this:
@@ -75,4 +75,4 @@ curl -X GET "https://fun.dongfg.com/stats/function"
 
 ### HTTP Request
 
-`GET https://fun.dongfg.com/stats/function`
+`GET https://stats.fun.dongfg.com/function`
