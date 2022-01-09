@@ -27,19 +27,8 @@ pipeline {
     stage('构建Slate') {
       steps {
         script {
-            withCredentials([usernamePassword(credentialsId: 'd2d0211a-5f3f-46f6-92cd-d2ec9692bc27', usernameVariable: 'REGISTRY_USER', passwordVariable: 'REGISTRY_PASS')]) {
-              sh "echo ${REGISTRY_PASS} | docker login -u ${REGISTRY_USER} --password-stdin dongfg-docker.pkg.coding.net"
-            }
-            imageFullName = "dongfg-docker.pkg.coding.net/serverless-aliyun/fun-doc/slate-builder:1.1.1"
-            imageNotExists = sh(script: "DOCKER_CLI_EXPERIMENTAL=enabled docker manifest inspect $imageFullName > /dev/null", returnStatus: true)
-            if (imageNotExists) {
-                docker.build("$imageFullName", "./slate")
-                sh "docker push $imageFullName"
-            } else {
-                docker.image(imageFullName)
-            }
-
-            sh "docker run --rm -v ${pwd()}/slate/source:/srv/slate/source -v ${pwd()}/static:/srv/slate/build $imageFullName"
+            imageFullName = "slatedocs/slate"
+            sh "docker run --rm -v ${pwd()}/source:/srv/slate/source -v ${pwd()}/static:/srv/slate/build $imageFullName"
         }
       }
     }
