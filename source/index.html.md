@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - stats
   - ebill
+  - iptv
   - errors
 
 search: true

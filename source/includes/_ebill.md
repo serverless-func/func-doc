@@ -3,7 +3,7 @@
 ## 招行-每日信用管家邮件
 
 ```shell
-curl -X POST "https://fun.dongfg.com/ebill/cmb" -d '{"username": "xxxxx", "password": "yyyyyy", "hour": 24}'
+curl -X POST "https://ebill.fun.dongfg.com/cmb" -d '{"username": "xxxxx", "password": "yyyyyy", "hour": 24}'
 ```
 
 > The above command returns JSON structured like this:
@@ -31,7 +31,7 @@ curl -X POST "https://fun.dongfg.com/ebill/cmb" -d '{"username": "xxxxx", "passw
 
 ### HTTP Request
 
-`POST https://fun.dongfg.com/ebill/cmb`
+`POST https://ebill.fun.dongfg.com/cmb`
 
 ### JSON Body Fields
 
@@ -46,7 +46,7 @@ curl -X POST "https://fun.dongfg.com/ebill/cmb" -d '{"username": "xxxxx", "passw
 ## 招行-月账单 pdf 解析
 
 ```shell
-curl -F 'file=@CreditCardReckoning202010.pdf' "https://fun.dongfg.com/ebill/file/cmb"
+curl -F 'file=@CreditCardReckoning202010.pdf' "https://ebill.fun.dongfg.com/file/cmb"
 ```
 
 > The above command returns JSON structured like this:
@@ -81,7 +81,7 @@ curl -F 'file=@CreditCardReckoning202010.pdf' "https://fun.dongfg.com/ebill/file
 
 ### HTTP Request
 
-`POST https://fun.dongfg.com/ebill/file/cmb`
+`POST https://ebill.fun.dongfg.com/file/cmb`
 
 ### Multipart Form
 
