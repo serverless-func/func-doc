@@ -5,8 +5,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - shell
 
 toc_footers:
-  - <a href='https://github.com/serverless-aliyun/fun-doc'>Source Code</a>
-  - <a href='https://github.com/serverless-aliyun/fun-doc/releases/tag/VERSION'>VER&#58; VERSION</a>
+  - <a href='https://github.com/serverless-func/func-doc'>Source Code</a>
+  - <a href='https://github.com/serverless-func/func-doc/releases/tag/VERSION'>VER&#58; VERSION</a>
   - VER&#58; BUILD_TIME
 
 includes:
@@ -28,6 +28,6 @@ Serverless 版 API 服务
 
 部署工具: Github Workflow + [Funcraft](https://github.com/alibaba/funcraft)
 
-源码仓库: https://github.com/serverless-aliyun/fun-doc
+源码仓库: https://github.com/serverless-func/func-doc
 
-Issues: https://github.com/serverless-aliyun/fun-doc/issues
+Issues: https://github.com/serverless-func/func-doc/issues
