@@ -7,5 +7,5 @@
 
 | Name        | Url                                  |
 | ----------- | ------------------------------------ |
-| CCTV 频道   | https://iptv.fun.dongfg.com/cctv.m3u |
-| CCTV 节目单 | https://iptv.fun.dongfg.com/cctv.xml |
+| CCTV 频道   | https://iptv.func.dongfg.com/cctv.m3u |
+| CCTV 节目单 | https://iptv.func.dongfg.com/cctv.xml |
