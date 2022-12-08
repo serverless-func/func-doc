@@ -1,7 +1,7 @@
 ---
 title: Serverless Funtions
 
-language_tabs: # must be one of https://git.io/vQNgJ
+language_tabs:
   - shell
 
 toc_footers:
@@ -10,7 +10,6 @@ toc_footers:
   - VER&#58; BUILD_TIME
 
 includes:
-  - stats
   - ebill
   - iptv
   - errors
@@ -24,9 +23,9 @@ code_clipboard: true
 
 Serverless 版 API 服务
 
-运行环境: 阿里云 Serverless
+运行环境: [Fission](https://fission.io/)
 
-部署工具: Github Workflow + [Funcraft](https://github.com/alibaba/funcraft)
+部署工具: Jenkins on Coding.Net + [Fission CLI](https://fission.io/docs/installation/)
 
 源码仓库: https://github.com/serverless-func/func-doc
 
