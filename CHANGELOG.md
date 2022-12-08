@@ -69,7 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Document for (fun.dongfg.com)[fun.dongfg.com]
+- Document for (func.dongfg.com)[func.dongfg.com]
 - Automatically build and deploy with github workflow depend on [funcraft](https://github.com/alibaba/funcraft)
 - Automatically publish github release with [goreleaser](https://goreleaser.com/)
 - Versioned document
