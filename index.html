@@ -1,0 +1,530 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Serverless Funtions</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-e9bde216.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#bed172efc9" class="toc-h1 toc-link" data-title="关于">关于</a>
+          </li>
+          <li>
+            <a href="#b7ee4b9970" class="toc-h1 toc-link" data-title="信用卡账单">信用卡账单</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#4ba563321e" class="toc-h2 toc-link" data-title="招行-每日信用管家邮件">招行-每日信用管家邮件</a>
+                  </li>
+                  <li>
+                    <a href="#pdf" class="toc-h2 toc-link" data-title="招行-月账单 pdf 解析">招行-月账单 pdf 解析</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#iptv" class="toc-h1 toc-link" data-title="IPTV">IPTV</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#iptv-list" class="toc-h2 toc-link" data-title="IPTV LIST">IPTV LIST</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#http" class="toc-h1 toc-link" data-title="HTTP 错误状态码">HTTP 错误状态码</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/serverless-func/func-doc'>Source Code</a></li>
+            <li><a href='https://github.com/serverless-func/func-doc/releases/tag/23.07.1'>VER&#58; 23.07.1</a></li>
+            <li>VER&#58; 23-07-05 14:03:45</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='bed172efc9'>关于</h1>
+<p>Serverless 版 API 服务</p>
+
+<p>运行环境: <a href="https://kubernetes.io">Kubernetes</a></p>
+
+<p>部署工具: Jenkins on Coding.Net + <a href="https://dongfg.coding.net/public/devops/plugin-kube-deploy/git/files">Kubernetes Deploy Plugin with Iac Repo</a></p>
+
+<p>源码仓库: https://github.com/serverless-func/func-doc</p>
+
+<p>Issues: https://github.com/serverless-func/func-doc/issues</p>
+<h1 id='b7ee4b9970'>信用卡账单</h1><h2 id='4ba563321e'>招行-每日信用管家邮件</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://ebill.func.dongfg.com/cmb"</span> <span class="nt">-d</span> <span class="s1">'{"username": "xxxxx", "password": "yyyyyy", "hour": 24}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"尾号3885 消费 支付宝-xxxxx有限公司"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-21 07:53:41"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"尾号3885 消费 支付宝-xxxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-21 11:35:57"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17.00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600757374</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>解析邮件获取最近的消费记录</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://ebill.func.dongfg.com/cmb</code></p>
+<h3 id='json-body-fields'>JSON Body Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td></td>
+<td>邮箱用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td></td>
+<td>邮箱密码</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>24</td>
+<td>解析的邮件范围，可为空，默认 24 小时</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">时间范围太大时响应时间较慢.</aside>
+<h2 id='pdf'>招行-月账单 pdf 解析</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-F</span> <span class="s1">'file=@CreditCardReckoning202010.pdf'</span> <span class="s2">"https://ebill.func.dongfg.com/file/cmb"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"tradingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-04"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creditDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-05"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"支付宝-华润万家有限公司"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"180.83"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tailNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3885"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tradingAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"180.83(CN)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"tradingDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-09"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creditDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-10"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"支付宝-阿斯兰航空服务（上海）有限公"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"939.50"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tailNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3885"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tradingAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"939.50(CN)"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1605681442</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>解析招行月账单 PDF 文件</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://ebill.func.dongfg.com/file/cmb</code></p>
+<h3 id='multipart-form'>Multipart Form</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td></td>
+<td>pdf 文件</td>
+</tr>
+</tbody></table>
+<h3 id='respnse-body-fields'>Respnse Body Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tradingDate</td>
+<td>交易日</td>
+</tr>
+<tr>
+<td>creditDate</td>
+<td>记账日</td>
+</tr>
+<tr>
+<td>name</td>
+<td>交易摘要</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>人民币金额</td>
+</tr>
+<tr>
+<td>tailNumber</td>
+<td>卡号末四位</td>
+</tr>
+<tr>
+<td>tradingAmount</td>
+<td>交易地金额</td>
+</tr>
+</tbody></table>
+<h1 id='iptv'>IPTV</h1>
+<p>数据来源 https://github.com/BurningC4/Chinese-IPTV
+用于加速 m3u 以及 epg 的访问</p>
+<h3 id='iptv-list'>IPTV LIST</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Url</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CCTV 频道</td>
+<td>https://iptv.func.dongfg.com/cctv.m3u</td>
+</tr>
+<tr>
+<td>CCTV 节目单</td>
+<td>https://iptv.func.dongfg.com/cctv.xml</td>
+</tr>
+</tbody></table>
+<h1 id='http'>HTTP 错误状态码</h1>
+<p>正常请求返回 <code>200</code></p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>请求参数有误</td>
+</tr>
+<tr>
+<td>500</td>
+<td>服务无法正常响应.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
