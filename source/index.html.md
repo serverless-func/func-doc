@@ -24,9 +24,9 @@ code_clipboard: true
 
 Serverless 版 API 服务
 
-运行环境: [Kubernetes](https://kubernetes.io)
+运行环境: [Knative](https://knative.dev/)
 
-部署工具: Jenkins on Coding.Net + [Kubernetes Deploy Plugin with Iac Repo](https://dongfg.coding.net/public/devops/plugin-kube-deploy/git/files)
+部署工具: Github Action + [func-deploy](https://github.com/serverless-func/func-doc)
 
 源码仓库: https://github.com/serverless-func/func-doc
 
