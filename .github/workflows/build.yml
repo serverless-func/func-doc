@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Current Build Time
         run: echo "BUILD_TIME=$(date +'%y-%m-%d %T')" >> "$GITHUB_ENV"
-      - name: Inject Version
+      - name: Before Build
         run: |
           printf 'BUILD_TIME: %s\n' "$BUILD_TIME"
           sed -i "s/VERSION/${{ github.ref_name }}/g" source/index.html.md
@@ -26,6 +26,9 @@ jobs:
           run: |
             cd /srv/slate
             /srv/slate/slate.sh build -v
+      - name: After Build
+        run: |
+          echo "func.dongfg.com" > ./static/CNAME
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
