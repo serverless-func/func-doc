@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    container:
+      image: slatedocs/slate
+      volumes:
+        - ${{ github.workspace }}/source:/srv/slate/source
+        - ${{ github.workspace }}/static:/srv/slate/build
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+      - name: Build
+        run: cd /srv/slate && /srv/slate/slate.sh build -v
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./static
