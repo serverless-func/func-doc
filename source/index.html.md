@@ -12,6 +12,7 @@ toc_footers:
 includes:
   - ebill
   - iptv
+  - favicon
   - errors
 
 search: true
