@@ -12,12 +12,12 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
       - name: Current Build Time
-        id: cbt
-        run: echo "::set-output name=time::$(date +'%y-%m-%d %T')"
+        run: echo "BUILD_TIME=$(date +'%y-%m-%d %T')" >> "$GITHUB_ENV"
       - name: Inject Version
         run: |
+          printf 'BUILD_TIME: %s\n' "$BUILD_TIME"
           sed -i "s/VERSION/${{ github.ref_name }}/g" source/index.html.md
-          sed -i "s/BUILD_TIME/${{ steps.cbt.outputs.time }}/g" source/index.html.md
+          sed -i "s/BUILD_TIME/$BUILD_TIME/g" source/index.html.md
       - name: Build
         uses: addnab/docker-run-action@v3
         with:
