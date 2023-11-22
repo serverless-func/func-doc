@@ -330,13 +330,24 @@
               </ul>
           </li>
           <li>
+            <a href="#favicon" class="toc-h1 toc-link" data-title="Favicon 服务">Favicon 服务</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#icon" class="toc-h2 toc-link" data-title="获取网站 icon 信息">获取网站 icon 信息</a>
+                  </li>
+                  <li>
+                    <a href="#icon-2" class="toc-h2 toc-link" data-title="查看网站 icon">查看网站 icon</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#http" class="toc-h1 toc-link" data-title="HTTP 错误状态码">HTTP 错误状态码</a>
           </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/serverless-func/func-doc'>Source Code</a></li>
-            <li><a href='https://github.com/serverless-func/func-doc/releases/tag/VERSION'>VER&#58; VERSION</a></li>
-            <li>VER&#58; BUILD_TIME</li>
+            <li><a href='https://github.com/serverless-func/func-doc/releases/tag/23.11.3'>VER&#58; 23.11.3</a></li>
+            <li>VER&#58; 23-11-22 05:43:41</li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -498,6 +509,74 @@
 <tr>
 <td>CCTV 节目单</td>
 <td>https://iptv.func.dongfg.com/cctv.xml</td>
+</tr>
+</tbody></table>
+<h1 id='favicon'>Favicon 服务</h1><h2 id='icon'>获取网站 icon 信息</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://favicon.func.dongfg.com/fetch?url=https://baidu.com"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://psstatic.cdn.bcebos.com/video/wiseindex/aa6eef91f8b5b1a33b454c401_1660835115000.png"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d98c55bf95f00b647bd5c73e140d56f9f51005741a30c6ad27f1afc608d9b50"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.baidu.com/favicon.ico"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mimetype"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/x-icon"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ico"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fcd05645b38f5a3abbca1cf4ee774cf74d3457115253169ef456462bba4f4af7"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1700631102</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>获取网站 icon 信息</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://favicon.func.dongfg.com/fetch</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td></td>
+<td>要查询的网站</td>
+</tr>
+</tbody></table>
+<h2 id='icon-2'>查看网站 icon</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://favicon.func.dongfg.com/preview?url=https://baidu.com"</span>
+</code></pre></div>
+<blockquote>
+<p>会使用 http 状态码 307 跳转到 icon 地址</p>
+</blockquote>
+
+<p>查看网站 icon</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://favicon.func.dongfg.com/fetch</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td></td>
+<td>要查询的网站</td>
 </tr>
 </tbody></table>
 <h1 id='http'>HTTP 错误状态码</h1>
