@@ -341,13 +341,24 @@
               </ul>
           </li>
           <li>
+            <a href="#0432f34837" class="toc-h1 toc-link" data-title="最新版本检查服务">最新版本检查服务</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#github-release" class="toc-h2 toc-link" data-title="获取 GitHub 最新 Release">获取 GitHub 最新 Release</a>
+                  </li>
+                  <li>
+                    <a href="#npm" class="toc-h2 toc-link" data-title="获取 NPM 包最新版本">获取 NPM 包最新版本</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#http" class="toc-h1 toc-link" data-title="HTTP 错误状态码">HTTP 错误状态码</a>
           </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://github.com/serverless-func/func-doc'>Source Code</a></li>
-            <li><a href='https://github.com/serverless-func/func-doc/releases/tag/23.11.7'>VER&#58; 23.11.7</a></li>
-            <li>VER&#58; 23-11-22 06:00:18</li>
+            <li><a href='https://github.com/serverless-func/func-doc/releases/tag/23.12.1'>VER&#58; 23.12.1</a></li>
+            <li>VER&#58; 23-12-02 05:53:23</li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -577,6 +588,67 @@
 <td>url</td>
 <td></td>
 <td>要查询的网站</td>
+</tr>
+</tbody></table>
+<h1 id='0432f34837'>最新版本检查服务</h1><h2 id='github-release'>获取 GitHub 最新 Release</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://version.func.dongfg.com/github?repo=dani-garcia/vaultwarden&amp;prerelease=true"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.30.1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1701490585</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>获取 GitHub 最新 Release</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://version.func.dongfg.com/github</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td></td>
+<td>要查询的仓库名称</td>
+</tr>
+<tr>
+<td>prerelease</td>
+<td>false</td>
+<td>是否包含 prerelease</td>
+</tr>
+</tbody></table>
+<h2 id='npm'>获取 NPM 包最新版本</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://version.func.dongfg.com/npm?pkg=qs"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.11.2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1701490585</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>获取 NPM 包最新版本</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://version.func.dongfg.com/npm</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pkg</td>
+<td></td>
+<td>要查询的包名</td>
 </tr>
 </tbody></table>
 <h1 id='http'>HTTP 错误状态码</h1>
