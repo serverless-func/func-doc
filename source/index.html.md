@@ -13,6 +13,7 @@ includes:
   - ebill
   - iptv
   - favicon
+  - version
   - errors
 
 search: true
